@@ -1,2 +1,4 @@
 word , palabra
 new , nuevo
+ball , pelota
+red,rojo

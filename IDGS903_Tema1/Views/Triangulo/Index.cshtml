@@ -1,0 +1,84 @@
+﻿@model IDGS903_Tema1.Models.Triangulo
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row">
+    <div class="col-6">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal row">
+            <h4 class="my-3">Triangulo</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group col-6 my-3">
+                @Html.LabelFor(model => model.x1, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.x1, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.x1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-6 my-3">
+                @Html.LabelFor(model => model.y1, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.y1, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.y1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-6 my-3">
+                @Html.LabelFor(model => model.x2, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.x2, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.x2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-6 my-3">
+                @Html.LabelFor(model => model.y2, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.y2, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.y2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-6 my-3">
+                @Html.LabelFor(model => model.x3, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.x3, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.x3, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group col-6 my-3">
+                @Html.LabelFor(model => model.y3, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.y3, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.y3, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group mt-5">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Calcular" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+        }
+
+        <div class="mt-5">
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+    <div class="col-6">
+        @if (TempData["area"] != null && TempData["tipo"] != null && TempData["perimetro"] != null)
+        {
+            <h4>El resultado del area es: @TempData["area"]</h4>             
+            <h4>Es un triangulo de tipo : @TempData["tipo"]</h4>             
+            <h4>Tiene un perimetro de : @TempData["perimetro"]</h4>
+        }
+    </div>
+</div>

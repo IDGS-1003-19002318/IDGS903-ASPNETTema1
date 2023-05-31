@@ -21,7 +21,7 @@ namespace IDGS903_Tema1.Services
         {
             var esp = traductor.ingles.ToLower().Trim();
             var ing = traductor.espanol.ToLower().Trim();
-            var datos = esp + " , " + ing + Environment.NewLine;
+            var datos = esp + "," + ing + Environment.NewLine;
 
             var ruta = HttpContext.Current.Server.MapPath("~/App_Data/traducciones.txt");
             File.AppendAllText(ruta, datos);
@@ -41,8 +41,8 @@ namespace IDGS903_Tema1.Services
                     foreach (string item in arr)
                     {
                         string[] element = item.Split(',');
-                        string comparar = element[1].ToString();
-                        if (element[1].ToString() == palabra)
+                        string comparar = element[1].ToString().Trim();
+                        if (comparar == palabra)
                         {
                             traduccion = element[0].ToString().Trim().ToUpperInvariant();
                         }
